@@ -147,8 +147,7 @@ a { text-decoration: none; color: inherit; }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    url('/front-diner.png') center/cover no-repeat;
+  background: url('/front-diner.png') center/cover no-repeat;
     background-size: cover;
     width: 100%;
     height: 100%;
