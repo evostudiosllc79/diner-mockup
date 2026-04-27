@@ -197,8 +197,9 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 36px;
   line-height: 1.7;
   animation: fadeDown 0.6s 0.2s ease both;
+  font-weight: 700;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.9);
 }
-
 .hero-btns {
   display: flex;
   gap: 16px;
