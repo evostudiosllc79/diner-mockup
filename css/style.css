@@ -149,7 +149,7 @@ a { text-decoration: none; color: inherit; }
   inset: 0;
   background:
     linear-gradient(135deg, rgba(232,25,44,0.85) 0%, rgba(26,26,26,0.75) 60%),
-    url('front-diner.png') center/cover no-repeat;
+    url('url('../front-diner.png')') center/cover no-repeat;
 }
 
 .hero-content {
