@@ -242,7 +242,6 @@ a { text-decoration: none; color: inherit; }
   width: 48px;
   height: 48px;
   border: none;
-  border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
