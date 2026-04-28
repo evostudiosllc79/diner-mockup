@@ -8,6 +8,20 @@ if (hamburger && navLinks) {
   });
 }
 
+/* ===== Back to Top Button ===== */
+/* Shows the button once user has scrolled past 400px. 
+   Clicking scrolls smoothly back to the top. */
+
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  backToTop.classList.toggle('visible', window.scrollY > 400);
+});
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 // Scroll fade-up animations
 const fadeEls = document.querySelectorAll('.fade-up');
 const observer = new IntersectionObserver((entries) => {

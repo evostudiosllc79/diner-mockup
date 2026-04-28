@@ -235,11 +235,54 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 7px 0 var(--red-dark);
 }
 
-.back-to-top:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 9px 0 var(--red-dark);
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  background: #0db4c4;      /* button color — change to match your site */
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(13, 180, 196, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 99;
 }
 
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #0a95a3;      /* darker shade on hover */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(13, 180, 196, 0.5);
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Smaller size and tighter positioning on mobile */
+@media (max-width: 700px) {
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+}
 .hero-hours {
   position: absolute;
   right: 40px;
