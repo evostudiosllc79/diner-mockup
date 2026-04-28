@@ -370,6 +370,8 @@ section { padding: 80px 24px; }
 .about-strip p {
   color: rgba(255,255,255,0.9);
   font-size: 1.05rem;
+  height: 400px;
+  max-height: 400px;
   line-height: 1.8;
   margin-bottom: 24px;
 }
