@@ -46,6 +46,7 @@ a { text-decoration: none; color: inherit; }
   margin-left: -24px;
   margin-right: -24px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
   
 /* ===== NAVIGATION ===== */
 .nav {
