@@ -240,6 +240,8 @@ a { text-decoration: none; color: inherit; }
   bottom: 32px;
   right: 32px;
   width: 48px;
+  padding: 0;
+  overflow: hidden;
   height: 48px;
   border: none;
   cursor: pointer;
