@@ -198,7 +198,7 @@ a { text-decoration: none; color: inherit; }
   font-family: var(--font-accent);
   font-size: 1.1rem;
   font-weight: 700;
-  padding: 14px 14px;
+  padding: 14px 36px;
   border-radius: 50px;
   cursor: pointer;
   border: none;
@@ -765,6 +765,7 @@ section { padding: 80px 24px; }
   text-align: center;
   position: relative;
   overflow: hidden;
+  display: inline-block !important;
 }
 
 .cta-banner::before {
