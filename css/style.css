@@ -745,7 +745,7 @@ section { padding: 80px 24px; }
 .testimonial-text {
   font-size: 1rem;
   line-height: 1.7;
-  color: var(--charcoal);
+  color: var(--black);
   margin-bottom: 20px;
   font-style: italic;
 }
