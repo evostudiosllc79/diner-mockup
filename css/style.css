@@ -360,6 +360,10 @@ section { padding: 80px 24px; }
   align-items: center;
 }
 
+.about-text {
+  align-self: start;
+}
+
 .about-strip h2 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.5vw, 2.8rem);
@@ -537,19 +541,6 @@ section { padding: 80px 24px; }
 
     .pause-btn:hover { background: rgba(0,0,0,0.7); }
 
-    /* ===== SLIDE COUNTER ===== */
-    .counter {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      z-index: 10;
-      background: rgba(0,0,0,0.4);
-      color: #fff;
-      font-size: 0.8rem;
-      padding: 4px 12px;
-      border-radius: 50px;
-      backdrop-filter: blur(4px);
-    }
 
 /* ===== MENU PREVIEW ===== */
 .menu-preview { background: var(--light-gray); }
