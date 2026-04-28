@@ -235,6 +235,11 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 7px 0 var(--red-dark);
 }
 
+.back-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 9px 0 var(--red-dark);
+}
+
 .hero-hours {
   position: absolute;
   right: 40px;
