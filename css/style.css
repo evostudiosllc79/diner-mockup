@@ -355,7 +355,7 @@ section { padding: 80px 24px; }
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: 60px;
   align-items: center;
 }
