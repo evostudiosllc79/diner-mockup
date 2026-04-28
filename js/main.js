@@ -108,7 +108,7 @@ if (timingBar && pauseBtn) {
         if (!paused) next();
       }, delay - elapsed);
     }
-
+ 
     function 
     
 (fromElapsed = 0) {
