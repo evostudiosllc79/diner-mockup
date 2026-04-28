@@ -51,18 +51,21 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   }
 });
 const slides = document.querySelectorAll('.slide');
-    const timingBar = document.getElementById('timingBar');
-    const pauseBtn = document.getElementById('pauseBtn');
-    const counter = document.getElementById('counter');
-    const dotsContainer = document.getElementById('dots');
+   const timingBar = document.getElementById('timingBar');
+const pauseBtn = document.getElementById('pauseBtn');
 
-    const DURATION = 5000; // ms per slide
-    let current = 0;
-    let paused = false;
-    let startTime = null;
-    let elapsed = 0;
-    let rafId = null;
-    let timeoutId = null;
+if (timingBar && pauseBtn) {
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('counter');
+  const dotsContainer = document.getElementById('dots');
+
+  const DURATION = 5000;
+  let current = 0;
+  let paused = false;
+  let startTime = null;
+  let elapsed = 0;
+  let rafId = null;
+  let timeoutId = null;
 
     // Build dots
     slides.forEach((_, i) => {
@@ -106,7 +109,9 @@ const slides = document.querySelectorAll('.slide');
       }, delay - elapsed);
     }
 
-    function startSlide(fromElapsed = 0) {
+    function 
+    
+(fromElapsed = 0) {
       elapsed = fromElapsed;
       timingBar.style.transition = 'none';
       timingBar.style.width = (elapsed / DURATION * 100) + '%';
@@ -167,3 +172,4 @@ const slides = document.querySelectorAll('.slide');
     // Init
     updateUI();
     startSlide();
+}
