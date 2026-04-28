@@ -55,7 +55,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .nav-inner {
-  padding: 0 40px;
+  padding: 0 40px 0 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
