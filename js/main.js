@@ -77,7 +77,7 @@ const slides = document.querySelectorAll('.slide');
     function updateUI() {
       slides.forEach((s, i) => s.classList.toggle('active', i === current));
       dots.forEach((d, i) => d.classList.toggle('active', i === current));
-      counter.textContent = `${current + 1} / ${slides.length}`;
+      if (counter) counter.textContent = `${current + 1} / ${slides.length}`;
     }
 
     function animateBar(from = 0) {
