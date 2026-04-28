@@ -244,6 +244,7 @@ a { text-decoration: none; color: inherit; }
   overflow: hidden;
   height: 48px;
   border: none;
+  outline: none;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -255,6 +256,8 @@ a { text-decoration: none; color: inherit; }
   transform: translateY(20px);
   transition: all 0.3s ease;
   z-index: 99;
+   -webkit-appearance: none;
+  appearance: none;
 }
 
 .back-to-top.visible {
