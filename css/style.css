@@ -675,13 +675,19 @@ section { padding: 80px 24px; }
   cursor: pointer;
 }
 
-.special-day:hover,
-.special-day.today {
+.special-day:hover {
   border-color: var(--yellow);
   transform: translateY(-4px);
 }
 
-.special-day.today { background: var(--red); }
+.special-day.today {
+  background: var(--red);
+  transform: translateY(-4px);
+}
+
+.special-day.today:hover {
+  border-color: var(--yellow);
+}
 
 .special-day-name {
   font-family: var(--font-accent);
