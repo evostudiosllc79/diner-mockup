@@ -351,13 +351,13 @@ section { padding: 80px 24px; }
 .section-subtitle {
   font-size: 1.1rem;
   text-align: center;
-  font color: var(--black);
   margin-left:auto;
   margin-right: auto;
   color: var(--black);
   max-width: 560px;
   line-height: 1.7;
   margin-bottom: 48px;
+  -webkit-text-stroke: 1px rgba(0,0,0,0.4);
 }
 
 /* ===== ABOUT STRIP ===== */
