@@ -58,11 +58,65 @@
         <p>From our fluffy pancakes at sunrise to our hearty Salisbury steak at dinner, everything we make is crafted with care, served fresh, and seasoned with love.</p>
         <a href="about.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5);">Our Story</a>
       </div>
-      <img
-        class="about-img"
-        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
-        alt="Inside Nana Dee's Diner"
-      />
+      <div class="slideshow">
+
+    <!-- Timing bar -->
+    <div class="timing-bar">
+      <div class="timing-progress" id="timingBar"></div>
+    </div>
+
+    <!-- Slide counter -->
+    <div class="counter" id="counter">1 / 5</div>
+
+    <!-- Pause button -->
+    <button class="pause-btn" id="pauseBtn" title="Pause">⏸</button>
+
+    <!-- Slides -->
+    <div class="slides">
+      <div class="slide active">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Slide 1" />
+        <div class="slide-caption">
+          <h3>Welcome to Dan's Diner</h3>
+          <p>Mesa's favorite retro dining experience</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=800&q=80" alt="Slide 2" />
+        <div class="slide-caption">
+          <h3>Fresh Breakfast Daily</h3>
+          <p>Made from scratch every morning</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80" alt="Slide 3" />
+        <div class="slide-caption">
+          <h3>Classic Burgers</h3>
+          <p>Juicy, handcrafted and loaded</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&q=80" alt="Slide 4" />
+        <div class="slide-caption">
+          <h3>Handcrafted Milkshakes</h3>
+          <p>Real fruit, real ice cream, real good</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Slide 5" />
+        <div class="slide-caption">
+          <h3>Come See Us</h3>
+          <p>6353 E Southern Ave, Mesa AZ — Open 7 days</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrows -->
+    <button class="arrow arrow-left" id="prevBtn">&#8592;</button>
+    <button class="arrow arrow-right" id="nextBtn">&#8594;</button>
+
+    <!-- Dots -->
+    <div class="dots" id="dots"></div>
+
     </div>
   </div>
 

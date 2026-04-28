@@ -50,3 +50,120 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     link.classList.add('active');
   }
 });
+const slides = document.querySelectorAll('.slide');
+    const timingBar = document.getElementById('timingBar');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const counter = document.getElementById('counter');
+    const dotsContainer = document.getElementById('dots');
+
+    const DURATION = 5000; // ms per slide
+    let current = 0;
+    let paused = false;
+    let startTime = null;
+    let elapsed = 0;
+    let rafId = null;
+    let timeoutId = null;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function updateUI() {
+      slides.forEach((s, i) => s.classList.toggle('active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      counter.textContent = `${current + 1} / ${slides.length}`;
+    }
+
+    function animateBar(from = 0) {
+      startTime = performance.now();
+      elapsed = from;
+
+      function frame(now) {
+        if (paused) return;
+        const delta = now - startTime;
+        const total = elapsed + delta;
+        const pct = Math.min((total / DURATION) * 100, 100);
+        timingBar.style.width = pct + '%';
+
+        if (total < DURATION) {
+          rafId = requestAnimationFrame(frame);
+        }
+      }
+
+      rafId = requestAnimationFrame(frame);
+    }
+
+    function scheduleNext(delay = DURATION) {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        if (!paused) next();
+      }, delay - elapsed);
+    }
+
+    function startSlide(fromElapsed = 0) {
+      elapsed = fromElapsed;
+      timingBar.style.transition = 'none';
+      timingBar.style.width = (elapsed / DURATION * 100) + '%';
+      setTimeout(() => {
+        timingBar.style.transition = '';
+        animateBar(fromElapsed);
+        scheduleNext(DURATION);
+      }, 20);
+    }
+
+    function next() {
+      current = (current + 1) % slides.length;
+      updateUI();
+      elapsed = 0;
+      startSlide();
+    }
+
+    function prev() {
+      current = (current - 1 + slides.length) % slides.length;
+      updateUI();
+      elapsed = 0;
+      startSlide();
+    }
+
+    function goTo(index) {
+      current = index;
+      updateUI();
+      elapsed = 0;
+      clearTimeout(timeoutId);
+      cancelAnimationFrame(rafId);
+      startSlide();
+    }
+
+    pauseBtn.addEventListener('click', () => {
+      paused = !paused;
+      pauseBtn.textContent = paused ? '▶' : '⏸';
+
+      if (paused) {
+        cancelAnimationFrame(rafId);
+        clearTimeout(timeoutId);
+        // Save how much time has elapsed
+        elapsed = (parseFloat(timingBar.style.width) / 100) * DURATION;
+      } else {
+        startSlide(elapsed);
+      }
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', next);
+    document.getElementById('prevBtn').addEventListener('click', prev);
+
+    // Keyboard support
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === ' ') { e.preventDefault(); pauseBtn.click(); }
+    });
+
+    // Init
+    updateUI();
+    startSlide();
