@@ -241,15 +241,13 @@ a { text-decoration: none; color: inherit; }
   right: 32px;
   width: 48px;
   height: 48px;
-  background: #0db4c4;      /* button color — change to match your site */
-  color: #ffffff;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(13, 180, 196, 0.35);
+  box-shadow: 0 4px 20px var(--yellow-dark);
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
