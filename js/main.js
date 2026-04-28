@@ -31,7 +31,7 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(el.target);
     }
   });
-}, { threshold: 0, rootMargin: '0px 0px -10px 0px' });
+}, { threshold: 0, rootMargin: '0px 0px 50px 0px' });
 
 fadeEls.forEach(el => observer.observe(el));
 
