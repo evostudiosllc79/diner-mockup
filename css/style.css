@@ -45,7 +45,7 @@ a { text-decoration: none; color: inherit; }
   background: var(--checkerboard);
   margin-left: -24px;
   margin-right: -24px;
-}
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
   
 /* ===== NAVIGATION ===== */
 .nav {
@@ -337,6 +337,7 @@ section { padding: 80px 24px; }
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
   margin-bottom: 16px;
+  -webkit-text-stroke: 1px rgba(0,0,0,0.15);
 }
 
 .section-subtitle {
@@ -345,6 +346,7 @@ section { padding: 80px 24px; }
   max-width: 560px;
   line-height: 1.7;
   margin-bottom: 48px;
+  -webkit-text-stroke: 0.5px rgba(0,0,0,0.15);
 }
 
 /* ===== ABOUT STRIP ===== */
