@@ -117,23 +117,6 @@ a { text-decoration: none; color: inherit; }
   background: var(--yellow) !important;
 }
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 8px;
-}
-
-.hamburger span {
-  display: block;
-  width: 26px;
-  height: 3px;
-  background: #fff;
-  border-radius: 2px;
-  transition: all 0.3s;
-}
- 
 /* ===== HERO ===== */
 .hero {
   min-height: 90vh;
