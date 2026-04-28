@@ -50,9 +50,8 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     link.classList.add('active');
   }
 });
-const slides = document.querySelectorAll('.slide');
    const timingBar = document.getElementById('timingBar');
-const pauseBtn = document.getElementById('pauseBtn');
+   const pauseBtn = document.getElementById('pauseBtn');
 
 if (timingBar && pauseBtn) {
   const slides = document.querySelectorAll('.slide');
@@ -109,9 +108,7 @@ if (timingBar && pauseBtn) {
       }, delay - elapsed);
     }
  
-    function 
-    
-(fromElapsed = 0) {
+   function startSlide(fromElapsed = 0) {
       elapsed = fromElapsed;
       timingBar.style.transition = 'none';
       timingBar.style.width = (elapsed / DURATION * 100) + '%';
