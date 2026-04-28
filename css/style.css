@@ -327,6 +327,8 @@ section { padding: 80px 24px; }
   align-items: center;
   gap: 10px;
   margin-bottom: 12px;
+  text-align: center;
+  justify-content: center;
 }
 
 .section-label::before,
@@ -345,6 +347,9 @@ section { padding: 80px 24px; }
 
 .section-subtitle {
   font-size: 1.1rem;
+  text-align: center;
+  margin-left:auto;
+  margin-right: auto;
   color: var(--black);
   max-width: 560px;
   line-height: 1.7;
