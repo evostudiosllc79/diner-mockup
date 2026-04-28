@@ -362,6 +362,9 @@ section { padding: 80px 24px; }
 
 .about-text {
   align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .about-strip h2 {
