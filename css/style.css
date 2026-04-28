@@ -400,6 +400,7 @@ section { padding: 80px 24px; }
   color: #fff;
   border-color: rgba(255,255,255,0.5);
   margin-top: 24px;
+  margin-bottom: 30px;
   align-self: flex-start;
   display: inline-block;
 }
