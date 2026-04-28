@@ -266,7 +266,6 @@ a { text-decoration: none; color: inherit; }
 
 .back-to-top:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px var(--yellow-dark);
 }
 
 /* Smaller size and tighter positioning on mobile */
