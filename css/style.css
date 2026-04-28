@@ -518,6 +518,19 @@ section { padding: 80px 24px; }
     .arrow-left { left: 16px; }
     .arrow-right { right: 16px; }
 
+        /* ===== SLIDE COUNTER ===== */
+    .counter {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 10;
+      background: rgba(0,0,0,0.4);
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 50px;
+      backdrop-filter: blur(4px);
+    }
     /* ===== PAUSE BUTTON ===== */
     .pause-btn {
       position: absolute;
