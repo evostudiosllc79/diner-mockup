@@ -380,6 +380,18 @@ section { padding: 80px 24px; }
   margin-bottom: 16px;
 }
 
+.about-strip .btn-outline {
+  color: #fff;
+  border-color: rgba(255,255,255,0.5);
+  margin-top: 24px;
+  display: inline-block;
+}
+
+.about-strip .btn-outline:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/*---slideshow--*/
  .slideshow {
       position: relative;
       align-self: start;
