@@ -265,10 +265,6 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 8px 30px var(--yellow-dark);
 }
 
-.back-to-top svg {
-  width: 20px;
-  height: 20px;
-}
 
 /* Smaller size and tighter positioning on mobile */
 @media (max-width: 700px) {
