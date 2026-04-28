@@ -250,7 +250,7 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   justify-content: center;
   box-shadow:  0 4px 20px rgba(0,0,0,0.3);
-  background: transparent;
+  background: transparent !important;
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
@@ -269,6 +269,10 @@ a { text-decoration: none; color: inherit; }
 .back-to-top:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 30px var(--yellow-dark);
+}
+
+.back-to-top img {
+  mix-blend-mode: multiply;
 }
 
 
