@@ -396,6 +396,7 @@ section { padding: 80px 24px; }
 /*---slideshow--*/
  .slideshow {
       position: relative;
+      margin-top: -20px;
       align-self: start;
       width: 100%;
       max-width: 100%;
