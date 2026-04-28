@@ -14,6 +14,7 @@ if (hamburger && navLinks) {
 
 const backToTop = document.getElementById('backToTop');
 
+if (backToTop) {
 window.addEventListener('scroll', () => {
   backToTop.classList.toggle('visible', window.scrollY > 400);
 });
@@ -21,6 +22,7 @@ window.addEventListener('scroll', () => {
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+}
 
 // Scroll fade-up animations
 const fadeEls = document.querySelectorAll('.fade-up');
