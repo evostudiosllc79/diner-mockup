@@ -1184,7 +1184,7 @@ footer {
 
 .float-field textarea:focus + label,
 .float-field textarea:not(:placeholder-shown) + label {
-  top: -6px;
+  top: 0px;
   font-size: 12px;
   color: #111;
 }
