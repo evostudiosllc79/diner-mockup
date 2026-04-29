@@ -3,28 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Menu — Nana Dee's Diner</title>
-  <meta name="description" content="Browse the full menu at Nana Dee's Diner in Mesa, AZ. Breakfast, lunch, dinner, desserts and more." />
+  <title>Dan's Diner — Vintage Restaurant in Mesa, AZ</title>
+  <meta name="description" content="Dan's Diner in Mesa, AZ — classic 50s diner serving breakfast, lunch & dinner. Neon lights, chrome booths, handcrafted shakes & comfort food done right." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <div class="checker-stripe"></div>
 
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><span>🍔</span> Nana Dee's Diner</a>
+ <nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="/dans-diner.png" alt="Dan's Diner" style="height:65px; width:200px; margin-left:-30px;"></a>
+    <div style="display:flex; align-items:center; gap:12px;">
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="menu.html">Menu</a></li>
         <li><a href="specials.html">Specials</a></li>
         <li><a href="contact.html" class="nav-cta">Visit Us</a></li>
+        <li><a href="online-orders.html" class="nav-cta">Online Order</a></li>
       </ul>
-      <div class="hamburger"><span></span><span></span><span></span></div>
+      <a href="cart.html" class="cart-icon" id="cartBtn">
+        🛒 <span class="cart-count" id="cartCount">0</span>
+      </a>
     </div>
-  </nav>
-
+  </div>
+</nav>
   <div class="page-hero">
     <h1>Our Menu</h1>
     <p>Everything made fresh. Comfort food done right — breakfast to dinner.</p>
@@ -46,14 +50,30 @@
         <div class="section-label">Morning Favorites</div>
         <h2 class="section-title" style="margin-bottom:32px;">Breakfast Menu</h2>
         <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-info"><h3>Nana's Classic Breakfast</h3><p>2 eggs any style, hash browns or home fries, toast & choice of bacon or sausage</p></div><div class="menu-item-price">$10.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Ultimate Omelette</h3><p>3-egg omelette stuffed with peppers, onions, mushrooms, cheese & your choice of meat</p></div><div class="menu-item-price">$12.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>California Benedict</h3><p>Poached eggs, Canadian bacon, avocado & hollandaise on an English muffin</p></div><div class="menu-item-price">$13.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Pancake Stack</h3><p>Short stack or full stack of buttermilk pancakes with butter & maple syrup</p></div><div class="menu-item-price">$8.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Corned Beef Hash</h3><p>House-made corned beef hash with 2 eggs any style & toast. A Nana Dee's classic.</p></div><div class="menu-item-price">$13.49</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>French Toast</h3><p>Thick-cut Texas toast, egg-dipped & griddled golden, dusted with powdered sugar</p></div><div class="menu-item-price">$9.49</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Breakfast Burrito</h3><p>Scrambled eggs, cheddar, peppers, onions, salsa & hash browns wrapped in a flour tortilla</p></div><div class="menu-item-price">$11.49</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Build Your Own</h3><p>Start with 2 eggs & choose your sides — hash browns, bacon, sausage, toast & more</p></div><div class="menu-item-price">From $7.99</div></div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Dan's Classic Breakfast</h3><p>2 eggs any style, hash browns or home fries, toast & choice of bacon or sausage</p></div><div class="menu-item-price">$10.99</div>
+          <button class="add-to-cart-btn" data-name="Dan's Classic Breakfast" data-price="10.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Ultimate Omelette</h3><p>3-egg omelette stuffed with peppers, onions, mushrooms, cheese & your choice of meat</p></div><div class="menu-item-price">$12.99</div>
+          <button class="add-to-cart-btn" data-name="Ultimate Omelette" data-price="12.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>California Benedict</h3><p>Poached eggs, Canadian bacon, avocado & hollandaise on an English muffin</p></div><div class="menu-item-price">$13.99</div>
+          <button class="add-to-cart-btn" data-name="California Benedict" data-price="13.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Pancake Stack</h3><p>Short stack or full stack of buttermilk pancakes with butter & maple syrup</p></div><div class="menu-item-price">$8.99</div>
+          <button class="add-to-cart-btn" data-name="Pancake Stack" data-price="8.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Corned Beef Hash</h3><p>House-made corned beef hash with 2 eggs any style & toast. A Nana Dee's classic.</p></div><div class="menu-item-price">$13.49</div>
+          <button class="add-to-cart-btn" data-name="Corned Beef Hash" data-price="13.49">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>French Toast</h3><p>Thick-cut Texas toast, egg-dipped & griddled golden, dusted with powdered sugar</p></div><div class="menu-item-price">$9.49</div>
+          <button class="add-to-cart-btn" data-name="French Toast" data-price="9.49">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Breakfast Burrito</h3><p>Scrambled eggs, cheddar, peppers, onions, salsa & hash browns wrapped in a flour tortilla</p></div><div class="menu-item-price">$11.49</div>
+          <button class="add-to-cart-btn" data-name="Breakfast Burrito" data-price="11.49">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Build Your Own</h3><p>Start with 2 eggs & choose your sides — hash browns, bacon, sausage, toast & more</p></div><div class="menu-item-price">From $7.99</div>
+          <button class="add-to-cart-btn" data-name="Build Your Own" data-price="7.99">+ Add to Order</button>
+        </div>
         </div>
       </div>
 
@@ -62,14 +82,30 @@
         <div class="section-label">Lunch & All-Day Classics</div>
         <h2 class="section-title" style="margin-bottom:32px;">Classic Menu</h2>
         <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-info"><h3>Nana's Classic Burger</h3><p>1/2 lb. beef patty, lettuce, tomato, onion, pickles on a brioche bun with fries</p></div><div class="menu-item-price">$13.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Bacon Cheeseburger</h3><p>Double smash patty, crispy bacon, American cheese, special sauce & all the fixings</p></div><div class="menu-item-price">$15.49</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Tuna Melt</h3><p>House tuna salad, melted Swiss, tomato on grilled sourdough. A diner staple.</p></div><div class="menu-item-price">$11.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Monte Cristo</h3><p>Ham, turkey & Swiss, battered & fried, dusted with powdered sugar & served with jam</p></div><div class="menu-item-price">$13.49</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Grilled Meatloaf Sandwich</h3><p>House meatloaf, grilled onions, cheddar & ketchup on Texas toast with fries</p></div><div class="menu-item-price">$12.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Club Sandwich</h3><p>Triple-decker with turkey, ham, bacon, lettuce, tomato & mayo on your choice of bread</p></div><div class="menu-item-price">$12.49</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Beef Barley Soup + Half Sandwich</h3><p>House-made beef barley soup paired with your choice of half sandwich</p></div><div class="menu-item-price">$11.49</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Handcrafted Milkshake</h3><p>Chocolate, vanilla, strawberry (with real fruit), or ask about today's special flavor</p></div><div class="menu-item-price">$6.99</div></div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Dan's Classic Burger</h3><p>1/2 lb. beef patty, lettuce, tomato, onion, pickles on a brioche bun with fries</p></div><div class="menu-item-price">$13.99</div>
+          <button class="add-to-cart-btn" data-name="Dan's Classic Burger" data-price="13.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Bacon Cheeseburger</h3><p>Double smash patty, crispy bacon, American cheese, special sauce & all the fixings</p></div><div class="menu-item-price">$15.49</div>
+          <button class="add-to-cart-btn" data-name="Bacon Cheeseburger" data-price="15.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Tuna Melt</h3><p>House tuna salad, melted Swiss, tomato on grilled sourdough. A diner staple.</p></div><div class="menu-item-price">$11.99</div>
+          <button class="add-to-cart-btn" data-name="Tuna Melt" data-price="11.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Monte Cristo</h3><p>Ham, turkey & Swiss, battered & fried, dusted with powdered sugar & served with jam</p></div><div class="menu-item-price">$13.49</div>
+          <button class="add-to-cart-btn" data-name="Monte Cristo" data-price="13.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Grilled Meatloaf Sandwich</h3><p>House meatloaf, grilled onions, cheddar & ketchup on Texas toast with fries</p></div><div class="menu-item-price">$12.99</div>
+          <button class="add-to-cart-btn" data-name="Grilled Meatloaf Sandwich" data-price="12.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Club Sandwich</h3><p>Triple-decker with turkey, ham, bacon, lettuce, tomato & mayo on your choice of bread</p></div><div class="menu-item-price">$12.49</div>
+          <button class="add-to-cart-btn" data-name="Club Sandwich" data-price="12.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Beef Barley Soup + Half Sandwich</h3><p>House-made beef barley soup paired with your choice of half sandwich</p></div><div class="menu-item-price">$11.49</div>
+          <button class="add-to-cart-btn" data-name="Beef Barley Soup + Half Sandwich" data-price="11.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Handcrafted Milkshake</h3><p>Chocolate, vanilla, strawberry (with real fruit), or ask about today's special flavor</p></div><div class="menu-item-price">$6.99</div>
+          <button class="add-to-cart-btn" data-name="Handcrafted Milkshake" data-price="6.99">+ Add to Order</button>
+        </div>
         </div>
       </div>
 
@@ -78,14 +114,30 @@
         <div class="section-label">Evening Comfort</div>
         <h2 class="section-title" style="margin-bottom:32px;">Dinner Menu</h2>
         <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-info"><h3>Grilled Meatloaf</h3><p>Thick-cut meatloaf with rich brown gravy, mashed potatoes & seasonal vegetables</p></div><div class="menu-item-price">$14.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Smothered Chicken Breast</h3><p>Grilled chicken breast smothered in mushroom gravy with mashed potatoes & veggies</p></div><div class="menu-item-price">$15.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Salisbury Steak</h3><p>Handmade beef patty in house onion gravy with mashed potatoes & green beans</p></div><div class="menu-item-price">$14.49</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Liver & Onions</h3><p>Tender beef liver, caramelized onions, mashed potatoes & house-made gravy</p></div><div class="menu-item-price">$13.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Grilled Pork Chops</h3><p>Two bone-in chops with cilantro white rice, seasonal vegetables & applesauce</p></div><div class="menu-item-price">$16.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Chopped Beef Sirloin</h3><p>Gourmet ground beef sirloin with creamy mashed potatoes, gravy & vegetables</p></div><div class="menu-item-price">$15.49</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Fish Fry Friday (Every Friday)</h3><p>All-you-can-eat fried fish with coleslaw, fries & tartar sauce. A Nana Dee's tradition!</p></div><div class="menu-item-price">$14.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Soup & Salad</h3><p>A bowl of today's house soup with a fresh garden or Caesar salad</p></div><div class="menu-item-price">$10.99</div></div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Grilled Meatloaf</h3><p>Thick-cut meatloaf with rich brown gravy, mashed potatoes & seasonal vegetables</p></div><div class="menu-item-price">$14.99</div>
+          <button class="add-to-cart-btn" data-name="Grilled Meatloaf" data-price="14.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Smothered Chicken Breast</h3><p>Grilled chicken breast smothered in mushroom gravy with mashed potatoes & veggies</p></div><div class="menu-item-price">$15.99</div>
+          <button class="add-to-cart-btn" data-name="Smothered Chicken Breast" data-price="15.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Salisbury Steak</h3><p>Handmade beef patty in house onion gravy with mashed potatoes & green beans</p></div><div class="menu-item-price">$14.49</div>
+          <button class="add-to-cart-btn" data-name="Salisbury Steak" data-price="14.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Liver & Onions</h3><p>Tender beef liver, caramelized onions, mashed potatoes & house-made gravy</p></div><div class="menu-item-price">$13.99</div>
+          <button class="add-to-cart-btn" data-name="Liver & Onions" data-price="13.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Grilled Pork Chops</h3><p>Two bone-in chops with cilantro white rice, seasonal vegetables & applesauce</p></div><div class="menu-item-price">$16.99</div>
+          <button class="add-to-cart-btn" data-name="Nana's Classic Burger" data-price="16.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Chopped Beef Sirloin</h3><p>Gourmet ground beef sirloin with creamy mashed potatoes, gravy & vegetables</p></div><div class="menu-item-price">$15.49</div>
+          <button class="add-to-cart-btn" data-name="Chopped Beef Sirloin" data-price="13.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Fish Fry Friday (Every Friday)</h3><p>All-you-can-eat fried fish with coleslaw, fries & tartar sauce. A Nana Dee's tradition!</p></div><div class="menu-item-price">$14.99</div>
+          <button class="add-to-cart-btn" data-name="Fish Fry Friday (Every Friday)" data-price="14.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Soup & Salad</h3><p>A bowl of today's house soup with a fresh garden or Caesar salad</p></div><div class="menu-item-price">$10.99</div>
+          <button class="add-to-cart-btn" data-name="Soup & Salad" data-price="10.99">+ Add to Order</button>
+        </div>
         </div>
       </div>
 
@@ -94,12 +146,24 @@
         <div class="section-label">Sweet Endings</div>
         <h2 class="section-title" style="margin-bottom:32px;">Dessert Menu</h2>
         <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-info"><h3>Brownie Sundae</h3><p>Warm fudge brownie topped with vanilla ice cream, hot fudge, whipped cream & a cherry</p></div><div class="menu-item-price">$7.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Warm Apple Pie</h3><p>House-made apple pie served warm with a scoop of vanilla ice cream or whipped cream</p></div><div class="menu-item-price">$6.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Strawberry Milkshake</h3><p>Hand-spun vanilla ice cream blended with real strawberry chunks. Thick & creamy.</p></div><div class="menu-item-price">$6.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Classic Banana Split</h3><p>Three scoops of ice cream, fresh banana, hot fudge, strawberry sauce & whipped cream</p></div><div class="menu-item-price">$8.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Pie of the Day</h3><p>Ask your server about today's fresh-baked pie selection. Served with ice cream.</p></div><div class="menu-item-price">$5.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Ice Cream Sundae</h3><p>Two scoops of your choice, hot fudge or caramel, whipped cream & sprinkles</p></div><div class="menu-item-price">$5.49</div></div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Brownie Sundae</h3><p>Warm fudge brownie topped with vanilla ice cream, hot fudge, whipped cream & a cherry</p></div><div class="menu-item-price">$7.99</div>
+          <button class="add-to-cart-btn" data-name="Brownie Sundae" data-price="7.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Warm Apple Pie</h3><p>House-made apple pie served warm with a scoop of vanilla ice cream or whipped cream</p></div><div class="menu-item-price">$6.99</div>
+          <button class="add-to-cart-btn" data-name="Warm Apple Pie" data-price="6.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Strawberry Milkshake</h3><p>Hand-spun vanilla ice cream blended with real strawberry chunks. Thick & creamy.</p></div><div class="menu-item-price">$6.99</div>
+          <button class="add-to-cart-btn" data-name="Strawberry Milkshake" data-price="6.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Classic Banana Split</h3><p>Three scoops of ice cream, fresh banana, hot fudge, strawberry sauce & whipped cream</p></div><div class="menu-item-price">$8.99</div>
+          <button class="add-to-cart-btn" data-name="Classic Banana Split" data-price="8.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Pie of the Day</h3><p>Ask your server about today's fresh-baked pie selection. Served with ice cream.</p></div><div class="menu-item-price">$5.99</div>
+          <button class="add-to-cart-btn" data-name="Pie of the Day" data-price="13.5">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Ice Cream Sundae</h3><p>Two scoops of your choice, hot fudge or caramel, whipped cream & sprinkles</p></div><div class="menu-item-price">$5.49</div>
+          <button class="add-to-cart-btn" data-name="Ice Cream Sundae" data-price="5.99">+ Add to Order</button>
+        </div>
         </div>
       </div>
 
@@ -109,12 +173,24 @@
         <h2 class="section-title" style="margin-bottom:12px;">Senior Menu</h2>
         <p style="margin-bottom:32px; color:var(--gray);">Smaller portions, same great taste. Available to guests 60 and over.</p>
         <div class="menu-items-grid">
-          <div class="menu-item"><div class="menu-item-info"><h3>Senior Breakfast</h3><p>1 egg any style, 2 strips bacon or 1 sausage link, hash browns & toast</p></div><div class="menu-item-price">$7.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Senior Burger</h3><p>4 oz. patty with lettuce, tomato, pickles & choice of one side</p></div><div class="menu-item-price">$9.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Senior Meatloaf</h3><p>A smaller portion of our classic meatloaf with mashed potatoes & a vegetable</p></div><div class="menu-item-price">$10.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Senior Sandwich</h3><p>Half sandwich on your choice of bread with a cup of soup or small salad</p></div><div class="menu-item-price">$8.99</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Senior Pancakes</h3><p>Two buttermilk pancakes with butter, maple syrup & one egg any style</p></div><div class="menu-item-price">$7.49</div></div>
-          <div class="menu-item"><div class="menu-item-info"><h3>Senior Fish Dinner</h3><p>2 pieces of lightly battered fish with coleslaw, fries & tartar sauce</p></div><div class="menu-item-price">$10.99</div></div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Senior Breakfast</h3><p>1 egg any style, 2 strips bacon or 1 sausage link, hash browns & toast</p></div><div class="menu-item-price">$7.99</div>
+          <button class="add-to-cart-btn" data-name="Senior Breakfast" data-price="7.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Senior Burger</h3><p>4 oz. patty with lettuce, tomato, pickles & choice of one side</p></div><div class="menu-item-price">$9.99</div>
+          <button class="add-to-cart-btn" data-name="Senior Burger" data-price="9.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Senior Meatloaf</h3><p>A smaller portion of our classic meatloaf with mashed potatoes & a vegetable</p></div><div class="menu-item-price">$10.99</div>
+          <button class="add-to-cart-btn" data-name="Senior Meatloaf" data-price="10.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Senior Sandwich</h3><p>Half sandwich on your choice of bread with a cup of soup or small salad</p></div><div class="menu-item-price">$8.99</div>
+          <button class="add-to-cart-btn" data-name="Senior Sandwich" data-price="8.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Senior Pancakes</h3><p>Two buttermilk pancakes with butter, maple syrup & one egg any style</p></div><div class="menu-item-price">$7.49</div>
+          <button class="add-to-cart-btn" data-name="Senior Pancakes" data-price="7.99">+ Add to Order</button>
+        </div>
+          <div class="menu-item"><div class="menu-item-info"><h3>Senior Fish Dinner</h3><p>2 pieces of lightly battered fish with coleslaw, fries & tartar sauce</p></div><div class="menu-item-price">$10.99</div>
+          <button class="add-to-cart-btn" data-name="Senior Fish Dinner" data-price="10.99">+ Add to Order</button>
+        </div>
         </div>
       </div>
 
@@ -167,8 +243,11 @@
       </div>
     </div>
   </footer>
-
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <img src="/back-to-top.png" alt="back to top" style="width:44px; height:50px; display:block;">
+</button>
   <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
   <script>
     // Menu tab switching
     const tabs = document.querySelectorAll('.menu-tab');
