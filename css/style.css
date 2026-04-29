@@ -1423,7 +1423,7 @@ footer {
 .float-field input:focus { border-color: #111; }
 .float-field label {
   position: absolute;
-  left: 16px; top: 0px;
+  left: 16px; top: 10px;
   color: #666;
   pointer-events: none;
   background: transparent;
