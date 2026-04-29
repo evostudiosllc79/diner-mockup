@@ -1395,6 +1395,9 @@ footer {
     }
 
     @media (max-width: 768px) {
+       .slideshow {
+        margin-top: 0; 
+       }
     .checkout-grid { grid-template-columns: 1fr; }
     }
 /*--floating label input--*/
