@@ -1402,6 +1402,10 @@ footer {
        .slideshow {
         margin-top: 0; 
        }
+       .checker-stripe {
+         margin-left: 0;
+        margin-right: 0;
+       }
     .checkout-grid { grid-template-columns: 1fr; }
     }
 /*--floating label input--*/
@@ -1665,6 +1669,10 @@ footer {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  .checker-stripe {
+  margin-left: 0;
+  margin-right: 0;
+}
   .nav-links { display: none; }
   .hamburger { display: flex; }
   .about-two-col {
@@ -1699,9 +1707,6 @@ footer {
 
 @media (max-width: 480px) {
   .specials-grid { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
   .hero-btns { flex-direction: column; }
-  .footer-top {
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;}
 }
