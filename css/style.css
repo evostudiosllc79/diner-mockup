@@ -658,7 +658,15 @@ section { padding: 80px 24px; }
   font-size: 1.4rem;
   color: var(--red);
 }
-
+/*--stats grid--*/
+.stats-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
 /* ===== SPECIALS ===== */
 .specials { background: var(--black); }
 
@@ -1398,16 +1406,6 @@ footer {
       margin-top: 12px;
     }
 
-    @media (max-width: 768px) {
-       .slideshow {
-        margin-top: 0; 
-       }
-       .checker-stripe {
-         margin-left: 0;
-        margin-right: 0;
-       }
-    .checkout-grid { grid-template-columns: 1fr; }
-    }
 /*--floating label input--*/
 .float-field { 
   margin-bottom: 20px;
@@ -1669,38 +1667,18 @@ footer {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .checker-stripe {
-  margin-left: 0;
-  margin-right: 0;
-}
+  .slideshow { margin-top: 0; }
+  .checker-stripe { margin-left: 0; margin-right: 0; }
+  .checkout-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .nav-links { display: none; }
   .hamburger { display: flex; }
-  .about-two-col {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .footer-top {
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: var(--red-dark);
-    padding: 20px;
-    gap: 8px;
-    z-index: 99;
-  }
-
+  .about-two-col { grid-template-columns: 1fr; gap: 32px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: var(--red-dark); padding: 20px; gap: 8px; z-index: 99; }
   .hero-hours { display: none; }
   .about-strip-inner { grid-template-columns: 1fr; gap: 32px; }
   .specials-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
   .contact-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
 }
