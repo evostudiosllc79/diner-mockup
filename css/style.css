@@ -29,7 +29,6 @@
 
 html { 
   scroll-behavior: smooth;
-  overflow: hidden;
   max-width: 100%;
 }
 
