@@ -27,13 +27,18 @@
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth;
+  overflow: hidden;
+  max-width: 100%;
+}
 
 body {
   font-family: var(--font-body);
   background: var(--cream);
   color: var(--black);
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 img { max-width: 100%; display: block; }
