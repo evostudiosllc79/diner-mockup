@@ -69,4 +69,12 @@ const Cart = {
 };
 
 // Init icon on page load
-document.addEventListener('DOMContentLoaded', () => Cart.updateIcon());
+Cart.updateIcon();
+
+document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const name = btn.dataset.name;
+    const price = parseFloat(btn.dataset.price);
+    Cart.add(name, name, price);
+  });
+});
