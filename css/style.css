@@ -1650,10 +1650,23 @@ footer {
   border-radius: 3px;
 }
 
+/*--about structure--*/
+.about-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
+  .about-two-col {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
 
   .nav-links.open {
     display: flex;
