@@ -1423,7 +1423,7 @@ footer {
 .float-field input:focus { border-color: #111; }
 .float-field label {
   position: absolute;
-  left: 16px; top: 14px;
+  left: 16px; top: -13px;
   color: #666;
   pointer-events: none;
   background: transparent;
@@ -1460,7 +1460,7 @@ footer {
 
 .float-field textarea:focus + label,
 .float-field textarea:not(:placeholder-shown) + label {
-  top: -12px;
+  top: -13px;
   font-size: 12px;
   color: #111;
 }
