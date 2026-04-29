@@ -1667,6 +1667,10 @@ footer {
     grid-template-columns: 1fr;
     gap: 32px;
   }
+  .footer-top {
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
 
   .nav-links.open {
     display: flex;
@@ -1693,4 +1697,7 @@ footer {
   .specials-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
   .hero-btns { flex-direction: column; }
+  .footer-top {
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;}
 }
