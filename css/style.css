@@ -1150,7 +1150,7 @@ footer {
   left: 16px; top: 14px;
   color: #666;
   pointer-events: none;
-  background: #fff;
+  background: transparent;
   padding: 0 4px;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
