@@ -3,39 +3,424 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dan's Diner — Vintage Restaurant in Mesa, AZ</title>
-  <meta name="description" content="Dan's Diner in Mesa, AZ — classic 50s diner serving breakfast, lunch & dinner. Neon lights, chrome booths, handcrafted shakes & comfort food done right." />
+  <title>Checkout — Dan's Diner</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ── ORDER SUMMARY ── */
+    .order-summary {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .order-summary h2 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      color: var(--black);
+    }
+
+    .order-summary-subtitle {
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+
+    .order-type-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .order-type-btn {
+      padding: 14px;
+      border-radius: var(--radius);
+      border: 2px solid #e0d8cc;
+      background: var(--cream);
+      font-family: var(--font-accent);
+      font-size: 1rem;
+      color: var(--gray);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .order-type-btn.active {
+      border-color: var(--red);
+      background: var(--red);
+      color: #fff;
+    }
+
+    .order-type-btn span {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+
+    /* ── CART ITEMS ── */
+    .cart-items {
+      border-top: 2px solid var(--light-gray);
+      padding-top: 20px;
+      margin-bottom: 24px;
+      min-height: 80px;
+    }
+
+    .cart-empty {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--gray);
+    }
+
+    .cart-empty-icon { font-size: 3rem; margin-bottom: 12px; }
+    .cart-empty p { font-size: 0.95rem; }
+    .cart-empty a { color: var(--red); font-family: var(--font-accent); }
+
+    .cart-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px dashed #e0d8cc;
+    }
+
+    .cart-line:last-child { border-bottom: none; }
+
+    .cart-line-name {
+      flex: 1;
+      font-size: 0.95rem;
+      font-family: var(--font-body);
+      color: var(--black);
+    }
+
+    .cart-line-qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--red);
+      background: transparent;
+      color: var(--red);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+      line-height: 1;
+    }
+
+    .qty-btn:hover {
+      background: var(--red);
+      color: #fff;
+    }
+
+    .qty-num {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .cart-line-price {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--red);
+      min-width: 60px;
+      text-align: right;
+    }
+
+    /* ── TOTALS ── */
+    .order-totals {
+      border-top: 2px solid var(--light-gray);
+      padding-top: 16px;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      color: var(--gray);
+      padding: 6px 0;
+    }
+
+    .total-row.discount {
+      color: #2a9d4a;
+      font-family: var(--font-accent);
+    }
+
+    .total-row.grand {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--black);
+      padding-top: 12px;
+      margin-top: 6px;
+      border-top: 2px solid var(--black);
+    }
+
+    .discount-badge {
+      display: none;
+      background: #d6f7ee;
+      color: #0a5c46;
+      font-family: var(--font-accent);
+      font-size: 0.85rem;
+      padding: 8px 16px;
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+      border: 1px solid rgba(6,214,160,0.3);
+    }
+
+    .discount-badge.visible { display: block; }
+
+    /* ── CUSTOMER FORM ── */
+    .customer-form {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .customer-form h2 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      color: var(--black);
+    }
+
+    .customer-form-subtitle {
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+
+    .delivery-fields {
+      display: none;
+    }
+
+    .delivery-fields.visible {
+      display: block;
+    }
+
+    .section-divider {
+      font-family: var(--font-accent);
+      font-size: 0.85rem;
+      color: var(--red);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 24px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e0d8cc;
+    }
+
+    .place-order-btn {
+      width: 100%;
+      padding: 18px;
+      margin-top: 8px;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-accent);
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 0 var(--red-dark);
+      transition: transform 0.15s, box-shadow 0.15s;
+      letter-spacing: 0.5px;
+    }
+
+    .place-order-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 0 var(--red-dark);
+    }
+
+    .place-order-btn:disabled {
+      background: #ccc;
+      box-shadow: none;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .secure-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-top: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .checkout-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
   <div class="checker-stripe"></div>
 
- <nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="/dans-diner.png" alt="Dan's Diner" style="height:65px; width:200px; margin-left:-30px;"></a>
-    <div style="display:flex; align-items:center; gap:12px;">
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="specials.html">Specials</a></li>
-        <li><a href="contact.html" class="nav-cta">Visit Us</a></li>
-        <li><a href="online-orders.html" class="nav-cta">Online Order</a></li>
-      </ul>
-      <a href="cart.html" class="cart-icon" id="cartBtn">
-        🛒 <span class="cart-count" id="cartCount">0</span>
-      </a>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="/dans-diner.png" alt="Dan's Diner" style="height:65px; width:200px; margin-left:-30px;"></a>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="specials.html">Specials</a></li>
+          <li><a href="contact.html" class="nav-cta">Visit Us</a></li>
+          <li><a href="online-orders.html" class="nav-cta">Online Order</a></li>
+        </ul>
+        <a href="checkout.html" class="cart-icon" id="cartBtn">
+          🛒 <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </div>
     </div>
+  </nav>
+
+  <div class="page-hero">
+    <h1>Your Order</h1>
+    <p>Review your items and place your order below.</p>
   </div>
-</nav>
- <!-- FOOTER -->
+
+  <section>
+    <div class="section-inner">
+      <div class="checkout-grid">
+
+        <!-- LEFT: Order Summary -->
+        <div class="order-summary">
+          <h2>Order Summary</h2>
+          <p class="order-summary-subtitle">Review your items or go back to the <a href="menu.html" style="color:var(--red); font-family:var(--font-accent);">menu</a> to add more.</p>
+
+          <!-- Pickup / Delivery Toggle -->
+          <div class="order-type-toggle">
+            <button class="order-type-btn active" id="pickupBtn" onclick="setOrderType('pickup')">
+              <span>🥡</span> Pickup
+            </button>
+            <button class="order-type-btn" id="deliveryBtn" onclick="setOrderType('delivery')">
+              <span>🚗</span> Delivery
+            </button>
+          </div>
+
+          <div class="discount-badge" id="discountBadge">
+            🎉 10% takeout discount applied automatically!
+          </div>
+
+          <!-- Cart Items -->
+          <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+              <div class="cart-empty-icon">🛒</div>
+              <p>Your cart is empty. <a href="menu.html">Browse the menu</a> to add items!</p>
+            </div>
+          </div>
+
+          <!-- Totals -->
+          <div class="order-totals" id="orderTotals" style="display:none;">
+            <div class="total-row">
+              <span>Subtotal</span>
+              <span id="subtotalVal">$0.00</span>
+            </div>
+            <div class="total-row discount" id="discountRow" style="display:none;">
+              <span>10% Pickup Discount</span>
+              <span id="discountVal">-$0.00</span>
+            </div>
+            <div class="total-row grand">
+              <span>Total</span>
+              <span id="totalVal">$0.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Customer Info -->
+        <div class="customer-form">
+          <h2>Your Info</h2>
+          <p class="customer-form-subtitle">We'll use this to confirm your order.</p>
+
+          <div class="section-divider">Contact</div>
+
+          <div class="form-row">
+            <div class="float-field">
+              <input type="text" id="firstName" name="first_name" placeholder=" " required />
+              <label for="firstName">First Name</label>
+            </div>
+            <div class="float-field">
+              <input type="text" id="lastName" name="last_name" placeholder=" " required />
+              <label for="lastName">Last Name</label>
+            </div>
+          </div>
+
+          <div class="float-field">
+            <input type="tel" id="phone" name="phone" placeholder=" " required />
+            <label for="phone">Phone Number</label>
+          </div>
+
+          <div class="float-field">
+            <input type="email" id="email" name="email" placeholder=" " />
+            <label for="email">Email (optional)</label>
+          </div>
+
+          <!-- Delivery Address (shown only for delivery) -->
+          <div class="delivery-fields" id="deliveryFields">
+            <div class="section-divider">Delivery Address</div>
+            <div class="float-field">
+              <input type="text" id="address" name="address" placeholder=" " />
+              <label for="address">Street Address</label>
+            </div>
+            <div class="form-row">
+              <div class="float-field">
+                <input type="text" id="city" name="city" placeholder=" " />
+                <label for="city">City</label>
+              </div>
+              <div class="float-field">
+                <input type="text" id="zip" name="zip" placeholder=" " />
+                <label for="zip">ZIP Code</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-divider">Special Requests</div>
+
+          <div class="float-field">
+            <textarea id="notes" name="notes" placeholder=" " style="min-height:100px; width:100%; padding:18px 16px 8px; background:var(--cream); border:1px solid #e6e3db; border-radius:8px; font-size:15px; outline:none; resize:vertical;"></textarea>
+            <label for="notes">Special Instructions (optional)</label>
+          </div>
+
+          <button class="place-order-btn" id="placeOrderBtn" onclick="placeOrder()">
+            Place Order →
+          </button>
+          <p class="secure-note">📞 We'll call to confirm your order at the number provided.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-brand">
           <h3>🍔 Dan's Diner</h3>
-          <p>Mesa's favorite retro diner. Good food, great times, and vibes straight out of the golden 50s. Come hungry, leave happy.</p>
+          <p>Mesa's favorite retro diner. Good food, great times, and vibes straight out of the golden 50s.</p>
           <div class="footer-social">
             <div class="social-btn">📘</div>
             <div class="social-btn">📸</div>
@@ -75,4 +460,111 @@
       </div>
     </div>
   </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    let orderType = 'pickup';
+
+    function setOrderType(type) {
+      orderType = type;
+      document.getElementById('pickupBtn').classList.toggle('active', type === 'pickup');
+      document.getElementById('deliveryBtn').classList.toggle('active', type === 'delivery');
+      document.getElementById('deliveryFields').classList.toggle('visible', type === 'delivery');
+      renderCart();
+    }
+
+    function renderCart() {
+      const items = Cart.items;
+      const container = document.getElementById('cartItems');
+      const totalsEl = document.getElementById('orderTotals');
+      const discountBadge = document.getElementById('discountBadge');
+      const discountRow = document.getElementById('discountRow');
+
+      if (!items || items.length === 0) {
+        container.innerHTML = `
+          <div class="cart-empty">
+            <div class="cart-empty-icon">🛒</div>
+            <p>Your cart is empty. <a href="menu.html">Browse the menu</a> to add items!</p>
+          </div>`;
+        totalsEl.style.display = 'none';
+        document.getElementById('placeOrderBtn').disabled = true;
+        discountBadge.classList.remove('visible');
+        return;
+      }
+
+      document.getElementById('placeOrderBtn').disabled = false;
+      totalsEl.style.display = 'block';
+
+      container.innerHTML = items.map(item => `
+        <div class="cart-line">
+          <div class="cart-line-name">${item.name}</div>
+          <div class="cart-line-qty">
+            <button class="qty-btn" onclick="changeQty('${item.id}', -1)">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
+          </div>
+          <div class="cart-line-price">$${(item.price * item.qty).toFixed(2)}</div>
+        </div>
+      `).join('');
+
+      const subtotal = Cart.total();
+      const isPickup = orderType === 'pickup';
+      const discount = isPickup ? subtotal * 0.10 : 0;
+      const total = subtotal - discount;
+
+      document.getElementById('subtotalVal').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('discountVal').textContent = `-$${discount.toFixed(2)}`;
+      document.getElementById('totalVal').textContent = `$${total.toFixed(2)}`;
+
+      discountRow.style.display = isPickup ? 'flex' : 'none';
+      discountBadge.classList.toggle('visible', isPickup);
+    }
+
+    function changeQty(id, delta) {
+      Cart.updateQty(id, delta);
+      renderCart();
+    }
+
+    function placeOrder() {
+      const firstName = document.getElementById('firstName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      if (!firstName || !phone) {
+        alert('Please enter your name and phone number before placing your order.');
+        return;
+      }
+
+      if (Cart.items.length === 0) {
+        alert('Your cart is empty!');
+        return;
+      }
+
+      // Build order summary string for thank you page
+      const items = Cart.items.map(i => `${i.qty}x ${i.name} ($${(i.price * i.qty).toFixed(2)})`).join(', ');
+      const subtotal = Cart.total();
+      const discount = orderType === 'pickup' ? subtotal * 0.10 : 0;
+      const total = subtotal - discount;
+      const lastName = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      // Save order info to sessionStorage for thank you page
+      sessionStorage.setItem('dinerOrder', JSON.stringify({
+        name: `${firstName} ${lastName}`.trim(),
+        phone,
+        email,
+        orderType,
+        items,
+        total: total.toFixed(2),
+        discount: discount.toFixed(2)
+      }));
+
+      Cart.clear();
+      window.location.href = 'thankyou.html';
+    }
+
+    // Init
+    renderCart();
+  </script>
 </body>
+</html>
